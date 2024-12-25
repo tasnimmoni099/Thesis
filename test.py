@@ -123,7 +123,7 @@ with st.sidebar:
     )
 
 # Main App
-st.title("This Antenatal & Postpartum Depression Assessment Tool")
+st.title("Antenatal & Postpartum Depression Assessment Tool")
 
 # Input Age (Reduced Width)
 col1, _ = st.columns([1, 3])
