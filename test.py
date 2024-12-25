@@ -16,6 +16,29 @@ LABELS = ['<20', '20-24', '25-29', '30-34', '35-39', '40+']
 encoder = OneHotEncoder(sparse_output=False)
 encoder.fit([[label] for label in LABELS])
 
+# Footer function
+def add_footer():
+    footer = """
+    <style>
+        /* Position the footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            padding: 10px;
+            color: #777;
+        }
+    </style>
+    <div class="footer">
+        © 2024 Made with 💚 by Tasnim & Samira.
+    </div>
+    """
+    st.markdown(footer, unsafe_allow_html=True)
+
+
 # Depression questions
 ANTENATAL_QUESTIONS = [
     "During your pregnancy, have you experienced persistent sadness or a consistently low mood?",
@@ -122,8 +145,10 @@ with st.sidebar:
         """
     )
 
+add_footer()
+
 # Main App
-st.title("Antenatal & Postpartum Depression Assessment Tool")
+st.title("This Antenatal & Postpartum Depression Assessment Tool")
 
 # Input Age (Reduced Width)
 col1, _ = st.columns([1, 3])
