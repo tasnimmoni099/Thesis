@@ -33,7 +33,7 @@ def add_footer():
         }
     </style>
     <div class="footer">
-        © 2024 Made with 💚 by Tasnim & Samira.
+        © 2025 Made with 💚 by Tasnim & Samira.
     </div>
     """
     st.markdown(footer, unsafe_allow_html=True)
@@ -129,7 +129,7 @@ def plot_gauge(score, title):
                     {"range": [66, 100], "color": "lightcoral"}
                 ]
             },
-            title={"text": f"{title} ({severity_labels[severity_idx]})"}
+            title={"text": f"{title}: {severity_labels[severity_idx]}"}
         )
     )
     return fig
@@ -148,7 +148,7 @@ with st.sidebar:
 add_footer()
 
 # Main App
-st.title("This Antenatal & Postpartum Depression Assessment Tool")
+st.title("Antenatal & Postpartum Depression Assessment Tool")
 
 # Input Age (Reduced Width)
 col1, _ = st.columns([1, 3])
@@ -192,7 +192,7 @@ if age:
             # Calculate Current Mood
             score = sum(responses) / len(questions) * 100
             severity = classify_depression(score)
-            st.plotly_chart(plot_gauge(score, "Current Mood"), use_container_width=True)
+            st.plotly_chart(plot_gauge(score, f"Your {phase} depression severity is"), use_container_width=True)
             st.success(f"Current Mood Score: {score:.2f}% - Severity Level: {severity}")
             
             # Provide suggestions
